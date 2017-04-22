@@ -1,5 +1,13 @@
 class Post
 
+  def self.post_type
+    [Memo, Link, Task]
+  end
+
+  def self.create(type_post)
+    return post_type[type_post].new
+  end
+
   def initialize
     @created_at = Time.now
     @text = nil
@@ -10,7 +18,7 @@ class Post
   end
 
   def to_strings
-    #todo
+    #абстрактный метод
   end
 
   def save
